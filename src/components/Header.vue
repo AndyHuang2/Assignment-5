@@ -5,8 +5,8 @@
         <h1>NotNetflix</h1>
     </div>
     <div class="buttons">
-            <button>sign in</button>
-            <button>sign up</button>
+        <RouterLink to="/register" class="button">Register</RouterLink>
+        <RouterLink to="/login" class="button">Login</RouterLink>
     </div>
 </template>
 <style scoped>
@@ -25,15 +25,12 @@ h1 {
     width: auto;
 }
 
-button {
-    margin: 10px;
-    padding: 15px 20px;
-    background-color: darkgray;
-
-}
-
-.buttons {
+.button {
     display: flex;
     justify-content: center;
+    width: 60px;
+    margin: 20px;
+    padding: 10px;
+    background-color: darkgray;
 }
 </style>
