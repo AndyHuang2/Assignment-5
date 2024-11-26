@@ -1,17 +1,11 @@
 <script setup>
-import Header from './components/Header.vue';
-import Hero from './components/Hero.vue';
-import Feature from './components/Feature.vue';
-import Footer from './components/Footer.vue';
+import { RouterView } from 'vue-router';
 </script>
 
 <template>
-  <Header/>
-  <Hero/>
-  <Feature/>
-  <Footer/>
+  <Suspense>
+    <RouterView />
+  </Suspense>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
