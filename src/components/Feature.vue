@@ -1,13 +1,7 @@
 <script setup>
 import axios from "axios";
-import { useRouter } from "vue-router";
-
-const router = useRouter();
 const response = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${import.meta.env.VITE_API_KEY}`);
 
-function getMovieDetails(id) {
-    router.push(`/movies/${id}`)
-}
 </script>
 
 <template>
