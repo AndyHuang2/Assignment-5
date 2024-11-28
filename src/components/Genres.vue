@@ -76,7 +76,7 @@ onMounted(async () => {
   padding: 10px;
   text-align: center;
   font-size: 1.1rem;
-  color: #e50914;
+  color: #ffffff;
 }
 
 select {

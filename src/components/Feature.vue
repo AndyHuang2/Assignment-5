@@ -1,7 +1,6 @@
 <script setup>
 import axios from "axios";
 const response = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${import.meta.env.VITE_API_KEY}`);
-
 </script>
 
 <template>

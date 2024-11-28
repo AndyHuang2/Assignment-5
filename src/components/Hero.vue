@@ -1,6 +1,6 @@
 <script setup>
 </script>
-<template> 
+<template>
     <div class="hero-section">
         <div class="text">
             <p>Welcome to NotNetflix</p>
@@ -15,6 +15,7 @@
     position: relative;
     color: white;
 }
+
 .text {
     position: absolute;
     top: 50%;
@@ -25,6 +26,7 @@
     font-weight: 400;
     font-style: normal;
 }
+
 .hero {
     width: 100%;
 }
