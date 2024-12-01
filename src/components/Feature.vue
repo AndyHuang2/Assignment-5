@@ -1,13 +1,17 @@
 <script setup>
 import axios from "axios";
 const response = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${import.meta.env.VITE_API_KEY}`);
+const shuffleArray = (array) => {
+  return array.sort(() => Math.random() - 0.5);
+};
+const randomMovies = shuffleArray(response.data.results).slice(0, 5);
 </script>
 
 <template>
   <div class="movie-gallery">
     <h1>Now Playing</h1>
     <div class="movie-list">
-      <div v-for="movie in response.data.results" :key="movie.id" class="movie-card" @click="getMovieDetails(movie.id)">
+      <div v-for="movie in randomMovies" :key="movie.id" class="movie-card">
         <img :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" alt="Movie Poster" class="movie-poster" />
         <p class="movie-title">{{ movie.title }}</p>
       </div>

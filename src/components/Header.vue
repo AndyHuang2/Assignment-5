@@ -22,15 +22,29 @@ h1 {
     font-style: italic;
     background-color: black;
     text-align: center;
-    width: auto;
+    width: 100%;
+    padding: 20px 0; /* Adds some padding for the header */
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    background-color: black; /* Ensure the button container has the same background as the header */
+    padding: 20px 0; /* Add padding to space out the buttons from the header */
 }
 
 .button {
-    display: flex;
-    justify-content: center;
-    width: 60px;
-    margin: 20px;
-    padding: 10px;
-    background-color: darkgray;
+    padding: 10px 20px;
+    margin: 0 10px; /* Spacing between buttons */
+    background-color: #333; /* Dark background for the buttons */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #555; /* Slightly lighter dark color on hover */
 }
 </style>
