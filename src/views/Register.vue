@@ -57,14 +57,14 @@ body {
   left: 20px;
   right: 20px;
   display: flex;
-  justify-content: space-between; /* Push logo to the left, register button to the right */
+  justify-content: space-between;
   z-index: 10;
 }
 
 .navbar h1 {
   font-size: 32px;
   color: #ffffff;
-  margin: 0; /* Remove default margin */
+  margin: 0;
 }
 
 .button {
@@ -82,14 +82,14 @@ body {
 }
 
 .register {
-  margin-left: auto; /* Ensures the register button stays on the right */
+  margin-left: auto;
 }
 
 .form-container {
   background-color: #333333;
-  padding: 40px; /* Increased padding for a bigger form */
+  padding: 40px;
   border-radius: 10px;
-  width: 400px; /* Increased width */
+  width: 400px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 10;
 }
@@ -102,8 +102,8 @@ body {
 
 .input-field {
   width: 100%;
-  padding: 15px; /* Increased padding for larger inputs */
-  margin-bottom: 20px; /* Increased margin between inputs */
+  padding: 15px;
+  margin-bottom: 20px;
   border: 1px solid #444;
   background-color: #222;
   color: #fff;
@@ -117,8 +117,8 @@ body {
 
 .login {
   background-color: #03dac5;
-  width: 100%; /* Ensure the login button is full width */
-  padding: 15px; /* Increased padding for a bigger button */
+  width: 100%;
+  padding: 15px;
 }
 
 .login:hover {

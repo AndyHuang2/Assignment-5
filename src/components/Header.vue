@@ -23,20 +23,20 @@ h1 {
     background-color: black;
     text-align: center;
     width: 100%;
-    padding: 20px 0; /* Adds some padding for the header */
+    padding: 20px 0;
 }
 
 .buttons {
     display: flex;
     justify-content: center;
-    background-color: black; /* Ensure the button container has the same background as the header */
-    padding: 20px 0; /* Add padding to space out the buttons from the header */
+    background-color: black;
+    padding: 20px 0;
 }
 
 .button {
     padding: 10px 20px;
-    margin: 0 10px; /* Spacing between buttons */
-    background-color: #333; /* Dark background for the buttons */
+    margin: 0 10px;
+    background-color: #333;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -45,6 +45,6 @@ h1 {
 }
 
 .button:hover {
-    background-color: #555; /* Slightly lighter dark color on hover */
+    background-color: #555;
 }
 </style>
