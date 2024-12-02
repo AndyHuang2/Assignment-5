@@ -8,13 +8,13 @@
       </div>
       <div class="form-container">
         <h2>Register</h2>
-        <form @submit.prevent="handleLogin">
+        <form>
           <input type="First Name" placeholder="First Name" class="input-field" required />
           <input type="Last Name" placeholder="Last Name" class="input-field" required />
           <input type="Email" placeholder="Email" class="input-field" required />
           <input type="Password" placeholder="Password" class="input-field" required />
           <input type="Confirm Password" placeholder="Password" class="input-field" required />
-          <button type="submit" class="button login">Register</button>
+          <button type="button" class="button login">Register</button>
         </form>
       </div>
     </div>
