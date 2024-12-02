@@ -10,12 +10,10 @@ const props = defineProps({
 });
 
 const movieDetails = ref(null);
-const isLoading = ref(false);
 
 async function fetchMovieDetails(id) {
   if (!id) return;
 
-  isLoading.value = true;
   try {
     const response = await axios.get(
       `https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_API_KEY}`
@@ -23,9 +21,6 @@ async function fetchMovieDetails(id) {
     movieDetails.value = response.data;
   } catch (error) {
     console.error("Error fetching movie details:", error);
-    movieDetails.value = null; // Reset on error
-  } finally {
-    isLoading.value = false;
   }
 }
 
@@ -36,8 +31,7 @@ watch(() => props.id, (newId) => fetchMovieDetails(newId));
 
 <template>
   <div class="details-component">
-    <div v-if="isLoading">Loading movie details...</div>
-    <div v-else-if="movieDetails">
+    <div v-if="movieDetails">
       <img
         :src="`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`"
         :alt="movieDetails.title"
@@ -48,7 +42,9 @@ watch(() => props.id, (newId) => fetchMovieDetails(newId));
         <p>Overview: {{ movieDetails.overview }}</p>
         <p>Release Date: {{ movieDetails.release_date }}</p>
         <p>Rating: {{ movieDetails.vote_average }}/10</p>
-        <p>Genres:<span v-for="genre in movieDetails.genres" :key="genre.id">{{ genre.name }}
+        <p>Genres:
+          <span v-for="genre in movieDetails.genres" :key="genre.id">
+            {{ genre.name }}
           </span>
         </p>
         <p>Runtime: {{ movieDetails.runtime }} minutes</p>
