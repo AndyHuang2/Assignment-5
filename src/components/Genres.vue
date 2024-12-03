@@ -92,7 +92,7 @@ select {
 }
 
 select:focus {
-  border-color: #e50914;
+  border-color: #001aff;
   outline: none;
 }
 </style>

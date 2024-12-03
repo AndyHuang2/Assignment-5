@@ -14,7 +14,7 @@
           <input type="Email" placeholder="Email" class="input-field" required />
           <input type="Password" placeholder="Password" class="input-field" required />
           <input type="Confirm Password" placeholder="Password" class="input-field" required />
-          <button type="button" class="button login">Register</button>
+          <button type="button" class="button register">Register</button>
         </form>
       </div>
     </div>
@@ -72,13 +72,13 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #6200ea;
+  background-color: #001aff;
   color: white;
   transition: background-color 0.3s;
 }
 
 .button:hover {
-  background-color: #3700b3;
+  background-color: #001aff;
 }
 
 .register {
@@ -112,17 +112,17 @@ body {
 
 .input-field:focus {
   outline: none;
-  border-color: #6200ea;
+  border-color: #001aff;
 }
 
-.login {
-  background-color: #03dac5;
+.register {
+  background-color: #001aff;
   width: 100%;
   padding: 15px;
 }
 
-.login:hover {
-  background-color: #018786;
+.register:hover {
+  background-color: #425efc;
 }
 
 </style>

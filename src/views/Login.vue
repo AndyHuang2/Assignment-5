@@ -86,13 +86,13 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #6200ea;
+  background-color: #001aff;
   color: white;
   transition: background-color 0.3s;
 }
 
 .button:hover {
-  background-color: #3700b3;
+  background-color: #001aff;
 }
 
 .register {
@@ -126,17 +126,17 @@ body {
 
 .input-field:focus {
   outline: none;
-  border-color: #6200ea;
+  border-color: #001aff;
 }
 
 .login {
-  background-color: #03dac5;
+  background-color: #001aff;
   width: 100%;
   padding: 15px;
 }
 
 .login:hover {
-  background-color: #018786;
+  background-color: #425efc;
 }
 
 </style>
