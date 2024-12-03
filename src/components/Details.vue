@@ -10,14 +10,22 @@ const props = defineProps({
 });
 
 const movieDetails = ref(null);
+const videos = ref([]);
 
 async function fetchMovieDetails(id) {
   if (!id) return;
 
-  const response = await axios.get(
+  // Fetch movie details
+  const movieResponse = await axios.get(
     `https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_API_KEY}`
   );
-  movieDetails.value = response.data;
+  movieDetails.value = movieResponse.data;
+
+  // Fetch all movie videos
+  const videosResponse = await axios.get(
+    `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${import.meta.env.VITE_API_KEY}`
+  );
+  videos.value = videosResponse.data.results;
 }
 
 onMounted(() => fetchMovieDetails(props.id));
@@ -43,10 +51,26 @@ watch(() => props.id, (newId) => fetchMovieDetails(newId));
           </span>
         </p>
         <p>Runtime: {{ movieDetails.runtime }} minutes</p>
+
+        <!-- Videos Section -->
+        <div v-if="videos.length" class="videos-section">
+          <h2>Videos</h2>
+          <div class="videos-grid">
+            <div v-for="video in videos" :key="video.id" class="video">
+              <iframe
+                :width="video.thumbnail_width || '560'"
+                :height="video.thumbnail_height || '315'"
+                :src="`https://www.youtube.com/embed/${video.key}`"
+                frameborder="0"
+              ></iframe>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
+
 <style scoped>
 .details-component {
   display: flex;
@@ -60,7 +84,7 @@ watch(() => props.id, (newId) => fetchMovieDetails(newId));
 }
 
 .details-content {
-  max-width: 600px;
+  max-width: 800px;
   margin-left: 20px;
   text-align: left;
   background-color: #1c1c1c;
@@ -70,13 +94,13 @@ watch(() => props.id, (newId) => fetchMovieDetails(newId));
 }
 
 .movie-poster {
-  width: 300px;
+  width: 350px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin: 0;
   color: #fff;
   font-weight: bold;
@@ -109,7 +133,7 @@ p span:hover {
 }
 
 .details-content h2 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin-top: 20px;
   color: #bbb;
 }
@@ -126,5 +150,42 @@ p span:hover {
   color: #fff;
   font-weight: bold;
   margin-left: 10px;
+}
+
+/* Videos Grid Styling */
+.videos-section {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.video iframe {
+  width: 100%;
+  height: 315px;
+  object-fit: contain;  /* Ensures the video is not cropped */
+}
+
+.video h3 {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #fff;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .videos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .videos-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

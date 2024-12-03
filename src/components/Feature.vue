@@ -60,6 +60,6 @@ const randomMovies = shuffleArray(response.data.results).slice(0, 5);
   padding: 10px;
   text-align: center;
   font-size: 1.1rem;
-  color: #e50914;
+  color: #ffffff;
 }
 </style>
