@@ -13,15 +13,15 @@ const movieDetails = ref(null);
 const videos = ref([]);
 
 async function fetchMovieDetails(id) {
-  if (!id) return;
-
-  // Fetch movie details
+  if (!id) {
+    return;
+  }
+  
   const movieResponse = await axios.get(
     `https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_API_KEY}`
   );
   movieDetails.value = movieResponse.data;
 
-  // Fetch all movie videos
   const videosResponse = await axios.get(
     `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${import.meta.env.VITE_API_KEY}`
   );
@@ -51,8 +51,6 @@ watch(() => props.id, (newId) => fetchMovieDetails(newId));
           </span>
         </p>
         <p>Runtime: {{ movieDetails.runtime }} minutes</p>
-
-        <!-- Videos Section -->
         <div v-if="videos.length" class="videos-section">
           <h2>Videos</h2>
           <div class="videos-grid">
@@ -152,7 +150,7 @@ p span:hover {
   margin-left: 10px;
 }
 
-/* Videos Grid Styling */
+
 .videos-section {
   margin-top: 30px;
   width: 100%;
@@ -167,7 +165,7 @@ p span:hover {
 .video iframe {
   width: 100%;
   height: 315px;
-  object-fit: contain;  /* Ensures the video is not cropped */
+  object-fit: contain;
 }
 
 .video h3 {
