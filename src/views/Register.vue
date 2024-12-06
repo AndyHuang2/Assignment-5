@@ -1,16 +1,4 @@
 <script setup>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-const router = useRouter();
-const password = ref('')
-const password2 = ref('')
-function handleSubmit() {
-  if (password.value === password2.value) {
-    router.push("/login");
-  } else {
-    window.alert("The passwords are not the same!");
-  }
-}
 </script>
 
 <template>
@@ -25,8 +13,8 @@ function handleSubmit() {
           <input type="First Name" placeholder="First Name" class="input-field" required />
           <input type="Last Name" placeholder="Last Name" class="input-field" required />
           <input type="Email" placeholder="Email" class="input-field" required />
-          <input v-model="password" type="Password" placeholder="Password" class="input-field" required />
-          <input v-model="password2" type="Password" placeholder="Comfirm Password" class="input-field" required />
+          <input type="Password" placeholder="Password" class="input-field" required />
+          <input type="Password" placeholder="Comfirm Password" class="input-field" required />
           <button type="submit" class="button register">Register</button>
         </form>
       </div>
